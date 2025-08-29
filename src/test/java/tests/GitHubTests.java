@@ -16,7 +16,7 @@ public class GitHubTests {
     public void createRepository() {
         BrowserManager.openBrowserWithConfig();
         new StartPage().clickOnSignInButton()
-                .signIn("Gde4erpak@gmail.com", "3472847789987o");
+                .signIn("", "");
     }
 
     @Test
@@ -41,10 +41,10 @@ public class GitHubTests {
 
     @AfterAll
     public static void delete() {
-        for (String value : REPOSITORIES_FOR_DELETE) {
-            new RepositorySettingsPage().deleteRepository(value);
+        REPOSITORIES_FOR_DELETE.forEach(title -> {
+            new RepositorySettingsPage().deleteRepository(title);
             new RepositoryPage().goToHomePage();
-        }
+        });
     }
 }
 
