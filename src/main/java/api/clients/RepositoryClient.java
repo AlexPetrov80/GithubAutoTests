@@ -24,7 +24,7 @@ public class RepositoryClient {
                 .build();
 
         var response = RestAssured.given()
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer token")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .baseUri(BASE_URI)
                 .body(requestBody)
@@ -35,7 +35,7 @@ public class RepositoryClient {
 
     public void deleteRepositoryApi(String name) {
         var response = RestAssured.given()
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer token")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .baseUri(BASE_URI)
                 .delete("/repos/AlexPetrov80/" + name)

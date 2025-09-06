@@ -19,7 +19,7 @@ public class GitHubApiTests {
     @Test
     public void createRepository() {
         var response = RestAssured.given()
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer token")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .baseUri(BASE_URI)
                 .body(requestBody)
@@ -31,7 +31,7 @@ public class GitHubApiTests {
     @Test
     public void getRepository() {
         var response = RestAssured.given()
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer token")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .baseUri(BASE_URI)
                 .get("/repos/AlexPetrov80/repo_1")
@@ -41,7 +41,7 @@ public class GitHubApiTests {
     @Test
     public void deleteRepository() {
         var response = RestAssured.given()
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer token")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .baseUri(BASE_URI)
                 .delete("/repos/AlexPetrov80/Evgeniy_850")
