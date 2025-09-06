@@ -12,7 +12,8 @@ public class AuthPage {
     public void signIn(String username, String pass) {
         login.val(username);
         password.val(pass);
-        signInButton.shouldBe(Condition.visible
+        signInButton.hover()
+                .shouldBe(Condition.visible
                 .because("Кнопка 'Sign in' недоступна для нажатия")).click();
     }
 }

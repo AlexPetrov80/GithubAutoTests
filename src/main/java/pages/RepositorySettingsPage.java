@@ -5,10 +5,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.List;
-
-import static tests.GitHubTests.*;
-
 public class RepositorySettingsPage {
 
     private final SelenideElement deleteButton = Selenide.$x("//button[@id='dialog-show-repo-delete-menu-dialog']");

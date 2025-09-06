@@ -1,29 +1,20 @@
 package pages;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 
 public class HomePage {
 
-    private final ElementsCollection repositories = Selenide.$$x("//li[@class='public source no-description']");
+    private final ElementsCollection repositories = Selenide.$$x("//ul[@class='list-style-none js-dashboard-repos-list']");
     private final SelenideElement repository = Selenide.$x("//*[@href='/AlexPetrov80/repo2']");
     private final SelenideElement newButton = Selenide.$x("//a[@href='/new']");
-    private static List<String> randomTitles;;
+    private final SelenideElement homeButton = Selenide.$x("//a[@class='AppHeader-logo ml-1 ']");
 
-    public void checkRepositories() {
-        //for (String value : randomTitles)
-
-
-
-    }
     public void clickOnRepository() {
         repository.shouldBe(Condition.visible
                 .because("Нужного репозитория нет в списке репозиториев")).click();
@@ -40,6 +31,8 @@ public class HomePage {
     }
 
     public void checkRepositoryByTitle(String repositoryTitle) {
+        homeButton.shouldBe(Condition.visible
+                .because("Картинка кота, возвращающая на главную страницу недоступна для нажатия")).click();
         repositories.findBy(Condition.text(repositoryTitle))
                 .shouldBe(Condition.visible
                         .because("В списке репозиториев должен быть репозиторий с названием: %s".formatted(repositoryTitle)));
